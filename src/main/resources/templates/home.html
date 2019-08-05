@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:C="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <title>Starter Template for Bootstrap</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/starter-template/">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Custom styles for this template -->
+    <link href="/starter-template.css" rel="stylesheet">
+
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+            aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" href="/all">See all users <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<div>
+    <h1>Witam. Jesteś nowym uzytkownikiem? Wprowadz danę</h1>
+
+</div>
+<form th:action="@{/users}" th:method="post" th:object="${user}">
+
+    <div class="form-group">
+        <label class="col-sm-2 col-form-label">Podaj imie</label>
+        <div class="col-sm-10">
+            <input th:field="*{name}" type="text" class="form-control" placeholder="Imię" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 col-form-label">Podaj wage</label>
+        <div class="col-sm-10">
+            <input th:field="*{weight}" type="text" class="form-control" placeholder="Waga" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 col-form-label">Podaj wzrost</label>
+        <div class="col-sm-10">
+            <input th:field="*{height}" type="text" class="form-control" placeholder="Wzrost" required>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-2 col-form-label">Podaj wiek</label>
+        <div class="col-sm-10">
+            <input th:field="*{age}" type="text" class="form-control" placeholder="Wiek" required>
+        </div>
+    </div>
+
+    <div>
+        <label> Wybierz rodzaj aktywnosci </label>
+        <select name="activity">
+            <option value="MINIMUM">Mimimalne lub brak</option>
+            <option value="TRIPLE">Fitness 3 razy w tydzien</option>
+            <option value="FIFTH">Fitness 5 razy w tydzien</option>
+            <option value="INTENSIVEFIFTH">Intensywny fitness 5 razy w tydzien</option>
+            <option value="ACTIVE">Kazdodniewne</option>
+            <option value="ACTIVEDOUBLE">Intensywne kazdodniewne lub, kilka razy na dzien</option>
+            <option value="INTENSIVE">Intensywne kazdodniewne plus praca fizyczna</option>
+        </select>
+    </div>
+
+
+    <div class="row">
+        <legend class="col-form-label col-sm-2 pt-0">Płeć</legend>
+        <div class="col-sm-10">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" th:field="*{sex}" id="gridRadios1" value=true
+                       checked>
+                <label class="form-check-label" for="gridRadios1">
+                    Męzczyzna
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" th:field="*{sex}" id="gridRadios2" value=false>
+                <label class="form-check-label" for="gridRadios2">
+                    Kobieta
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <input type="submit" class="btn btn-primary btn-lg" value="Dodaj uzytkownika">
+        </div>
+    </div>
+
+    <input type="hidden" th:field="*{id}">
+
+</form>
+
+
+<!-- /.container -->
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
